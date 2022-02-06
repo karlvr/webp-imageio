@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 echo Building for OS: $1, Arch: $2, Toolchain: $3
 mkdir -p build/$1/$2
 cd build/$1/$2

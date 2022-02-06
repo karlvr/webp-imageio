@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 ./dockcross/dockcross-linux-armv5 bash -c './compile.sh Linux arm'
 ./dockcross/dockcross-linux-armv6-lts bash -c './compile.sh Linux armv6'
 ./dockcross/dockcross-linux-armv7 bash -c './compile.sh Linux armv7'
