@@ -21,3 +21,6 @@ popd
 
 mkdir -p src/main/resources/native/Mac/aarch64
 cp build/Mac/aarch64/src/main/c/libwebp-imageio.dylib src/main/resources/native/Mac/aarch64/
+
+# Create a universal library
+lipo -output build/Mac/libwebp-imageio.dylib -create build/Mac/aarch64/src/main/c/libwebp-imageio.dylib build/Mac/x86_64/src/main/c/libwebp-imageio.dylib
