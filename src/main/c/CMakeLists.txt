@@ -61,3 +61,8 @@ endif()
 if ( APPLE )
   set_target_properties( webp-imageio PROPERTIES MACOSX_RPATH OFF )
 endif()
+
+# --soname does work with ldd when building Windows arm64
+if ( CMAKE_BASE_NAME STREQUAL "aarch64-w64-mingw32-g++" )
+  set_target_properties (webp-imageio PROPERTIES NO_SONAME ON )
+endif()

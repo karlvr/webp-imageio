@@ -16,7 +16,9 @@ cd ../../..
 
 LIB="libwebp-imageio.so"
 if [ "$1" == "Windows" ]; then
-  LIB="webp-imageio.dll"
+  if [ "$2" != "aarch64" ]; then
+    LIB="webp-imageio.dll"
+  fi
 elif [ "$1" == "Mac" ]; then
   LIB="libwebp-imageio.dylib"
 fi
