@@ -16,12 +16,10 @@ cd ../../..
 
 LIB="libwebp-imageio.so"
 if [ "$1" == "Windows" ]; then
-  if [ "$2" != "aarch64" ]; then
-    LIB="webp-imageio.dll"
-  fi
+  LIB="webp-imageio.dll"
 elif [ "$1" == "Mac" ]; then
   LIB="libwebp-imageio.dylib"
 fi
 
-# mkdir -p src/main/resources/native/$1/$2/
-# cp build/$1/$2/src/main/c/${LIB} src/main/resources/native/$1/$2/
+mkdir -p out/$1/$2/
+cp build/$1/$2/src/main/c/${LIB} out/$1/$2/

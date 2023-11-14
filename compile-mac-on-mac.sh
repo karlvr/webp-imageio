@@ -10,8 +10,8 @@ cmake -DCMAKE_OSX_ARCHITECTURES="x86_64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DPN
 cmake --build . --config Release
 popd
 
-mkdir -p src/main/resources/native/Mac/x86_64
-cp build/Mac/x86_64/src/main/c/libwebp-imageio.dylib src/main/resources/native/Mac/x86_64/
+mkdir -p out/Mac/x86_64
+cp build/Mac/x86_64/src/main/c/libwebp-imageio.dylib out/Mac/x86_64/
 
 mkdir -p build/Mac/aarch64
 pushd build/Mac/aarch64
@@ -19,8 +19,8 @@ cmake -DCMAKE_OSX_ARCHITECTURES="arm64" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DPNG
 cmake --build . --config Release
 popd
 
-mkdir -p src/main/resources/native/Mac/aarch64
-cp build/Mac/aarch64/src/main/c/libwebp-imageio.dylib src/main/resources/native/Mac/aarch64/
+mkdir -p out/Mac/aarch64
+cp build/Mac/aarch64/src/main/c/libwebp-imageio.dylib out/Mac/aarch64/
 
 # Create a universal library
-lipo -output build/Mac/libwebp-imageio.dylib -create build/Mac/aarch64/src/main/c/libwebp-imageio.dylib build/Mac/x86_64/src/main/c/libwebp-imageio.dylib
+lipo -output out/Mac/libwebp-imageio.dylib -create build/Mac/aarch64/src/main/c/libwebp-imageio.dylib build/Mac/x86_64/src/main/c/libwebp-imageio.dylib
